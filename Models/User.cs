@@ -20,7 +20,14 @@ public class User
             new Claim(ClaimTypes.Name, Name),
             new Claim(ClaimTypes.Email, Email)
         };
-    
+        if(Roles != null)
+        {
+            foreach(var role in Roles)
+            {
+                claims.Add(new claim(ClaimTypes.Role, role.Name));
+            }
+        }
+        return claims;
     }
 
 }
